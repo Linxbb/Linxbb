@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*body{
+            background: 
+        }*/
+        embed{
+            width: 100%;
+            height: 500px;
+        }
+        .con{
+            width: 70px;
+            height: 25px;
+            background-color: #EDE9DD;
+            position: absolute;
+            top: 18px;
+        }
+    </style>
+</head>
+<body>
+ <!--<embed width="324" height="250" type="application/x-shockwave-flash" src="http://uiste.com/content/templates/default/images/xfish.swf" wmode="opaque" bgcolor="F6F6F6" flashvars="up_numFish=6&amp;up_fishColor4=#FFFFFF&amp;up_backgroundColor=F6F6F6&amp;up_fishColor1=F4A61C&amp;up_fishColor7=F45540&amp;up_fishColor6=F45540&amp;up_fishColor8=F45540&amp;up_fishColor2=C4C4C4&amp;up_fishColor9=F45540&amp;up_fishColor3=#600000&amp;up_fishName=Fish&amp;up_fishColor5=F45540&amp;up_fishColor10=F45540&amp;up_backgroundImage=http://&amp;up_foodColor=FCB347&amp;">-->
+
+<div style="padding:10px">
+    <embed type="application/x-shockwave-flash" src="http://cdn.abowman.com/widgets/fish/fish.swf" width="100%" height="500" id="flashID" name="flashID" bgcolor="#EDE9DD" quality="high" scale="noscale" salign="tl" flashvars="up_backgroundColor=EDE9DD&amp;up_fishColor10=F45540&amp;up_fishColor4=F45540&amp;up_fishColor5=E3BCB8&amp;up_foodColor=FCB347&amp;up_fishColor8=A18025&amp;up_fishColor6=F45540&amp;up_numFish=10&amp;up_fishName=Fish&amp;up_fishColor1=47150E&amp;up_fishColor9=46414A&amp;up_fishColor7=F45540&amp;up_fishColor2=591208&amp;up_fishColor3=1C8DBA&amp;up_backgroundImage=http://&amp;" wmode="opaque" allowscriptaccess="always">
+    <!--<div class="con" style=" width: 70px;
+            height: 25px;
+            background-color: #EDE9DD;
+            position: absolute;
+            top: 18px;"></div>-->
+</div>
+</body>
+</html> 
