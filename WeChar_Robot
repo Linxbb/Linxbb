@@ -1,0 +1,81 @@
+# coding:utf-8
+
+from flask import Flask, request, abort, make_response
+import hashlib
+import xmltodict
+import time
+import requests
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+app = Flask(__name__)
+
+WECHAT_TOKEN = 'wechat'
+
+#图灵API
+API = 'http://www.tuling123.com/openapi/api'
+APIkey = 'be74fb4282534c6b986812a58a40d734'
+
+
+@app.route('/wechat8015', methods=['GET', 'POST'])
+def wechat():
+    # 获取对接接口数据
+    signature = request.args.get("signature")
+    timestamp = request.args.get("timestamp")
+    nonce = request.args.get("nonce")
+    echostr = request.args.get("echostr")
+    # 排序
+    li = [WECHAT_TOKEN, timestamp, nonce]
+    li.sort()
+    # 字符串连接
+    tmp_str = ''.join(li)
+    # 加密
+    sign = hashlib.sha1(tmp_str).hexdigest()
+    #对比，确认用户
+    if sign != signature:
+        abort(403)
+    else:
+        if request.method == 'GET':
+            return echostr
+        else:
+            # post请求时接受消息
+            xml = request.data
+            req = xmltodict.parse(xml)['xml']
+            # 获取消息类型
+            if 'text' == req.get('MsgType'):
+                data = {
+                    'key': APIkey,
+                    'info': req.get('Content'),
+                    'userid': 'test'
+                }
+                try:
+                    r = requests.post(API, data=data).json()
+                    text = r.get('text')
+                except:
+                    text = '请联系人工客服'
+                    
+                # 表示为文本消息
+                resp = {
+                    'ToUserName': req.get('FromUserName'),
+                    'FromUserName': req.get('ToUserName'),
+                    'CreateTime': int(time.time()),
+                    'MsgType': 'text',
+                    'Content': text
+                }
+            else:
+                resp = {
+                    'ToUserName': req.get('FromUserName'),
+                    'FromUserName': req.get('ToUserName'),
+                    'CreateTime': int(time.time()),
+                    'MsgType': 'text',
+                    'Content': 'i love u'
+                }
+
+            xml = xmltodict.unparse({'xml': resp})
+            return xml
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8015)
