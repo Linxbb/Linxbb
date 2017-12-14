@@ -1,0 +1,2 @@
+log.SetFlags(log.Llongfile)
+使log输出加上行数
