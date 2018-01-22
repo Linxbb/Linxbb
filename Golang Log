@@ -27,7 +27,7 @@ func init() {
 		log.Fatalln("打开日志文件失败：",err)
 	}
   Info = log.New(os.Stdout,"Info:",log.Ldate | log.Ltime | log.Lshortfile)
-	Error = log.New(io.MultiWriter(errFile),"Error:", log.Ltime | log.Lshortfile)
+  Error = log.New(io.MultiWriter(errFile),"Error:", log.Ltime | log.Lshortfile)
   输出到控制台和文件
   //Error = log.New(io.MultiWriter(os.Stderr,errFile),"Error:",log.Ldate | log.Ltime | log.Lshortfile)
 }
@@ -35,5 +35,5 @@ func init() {
 func main(){
   //按格式输出
   Info.Println("。。。。。")
-	Error.Println("。。。。。。")
+  Error.Println("。。。。。。")
 }
