@@ -13,9 +13,8 @@ import (
 	"runtime/debug"
 )
 
-
 const(
-	// 每月免费翻译200万字符！！！
+	// 每月免费翻译200万字符
 	reqUrlB = "http://api.fanyi.baidu.com/api/trans/vip/translate"
 	fromB = "auto"     //源语种
 	toB = "zh"         //翻译后语种
