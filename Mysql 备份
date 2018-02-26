@@ -1,0 +1,4 @@
+备份：
+  mysqldump -uroot -proot -h [ip] -P 3306 [数据库] | gzip >[数据库].sql.gz
+恢复：
+  gunzip < test.sql.gz | mysql -uroot -proot -h [ip] -P 3306 test
