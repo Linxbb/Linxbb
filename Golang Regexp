@@ -4,7 +4,7 @@ import regexp
 
 //获取分组里的数据
 re:= regexp.MustCompile("<strong>(.*?)</strong>.*")
-	fmt.Println(re.ReplaceAllString(req,"$1
+	fmt.Println(re.ReplaceAllString(req,"$1"))
   
 //获取正则匹配的数据
 re, _ := regexp.Compile("[0-9]{1,3}")
