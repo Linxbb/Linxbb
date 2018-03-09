@@ -2,3 +2,9 @@
   mysqldump -uroot -proot -h [ip] -P 3306 [数据库] | gzip >[数据库].sql.gz
 恢复：
   gunzip < test.sql.gz | mysql -uroot -proot -h [ip] -P 3306 test
+
+
+备份db1里的t7表
+[root@stu mysql]#  mysqldump -u root -p123 db1 t7 > t7.sql
+恢复db1里的t7表
+[root@stu mysql]#  mysql -u root -p123 db1 < t7.sql
