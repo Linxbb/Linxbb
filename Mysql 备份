@@ -8,3 +8,11 @@
 [root@stu mysql]#  mysqldump -u root -p123 db1 t7 > t7.sql
 恢复db1里的t7表
 [root@stu mysql]#  mysql -u root -p123 db1 < t7.sql
+
+INSERT 中ON DUPLICATE KEY UPDATE的使用 
+       如果指定了ON DUPLICATE KEY UPDATE，并且插入行后会导致在一个UNIQUE索引或PRIMARY KEY中出现重复值，
+       则执行UPDATE。例如，如果列a被定义为UNIQUE，并且包含值1，则以下两个语句具有相同的效果： 
+
+        INSERT INTO table (a,b,c) VALUES (1,2,3)  ON DUPLICATE KEY UPDATE c=c+1; 
+
+        UPDATE table SET c=c+1 WHERE a=1; 
