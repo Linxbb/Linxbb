@@ -19,3 +19,11 @@
 5、中文
   [\u4e00-\u9fa5]
   
+6，截取字符串
+  s := "abcdefg"
+  s = string([]byte(s)[:3])
+  fmt.Println(s) //得到 "abc"
+  
+  s := "a我cd"
+  s = string([]rune(s)[:3])
+  fmt.Println(s) //得到 "a我c"
