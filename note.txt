@@ -19,7 +19,7 @@
 5、中文
   [\u4e00-\u9fa5]
   
-6，截取字符串
+6、截取字符串
   s := "abcdefg"
   s = string([]byte(s)[:3])
   fmt.Println(s) //得到 "abc"
@@ -27,3 +27,6 @@
   s := "a我cd"
   s = string([]rune(s)[:3])
   fmt.Println(s) //得到 "a我c"
+
+7、查看重复字段及数量
+   select name,count(*) as count from name_data group by name having count>1;
